@@ -4,8 +4,13 @@ public class Triangolo implements Poligono {
 
 	private double base, altezza, cateto;
 
-	public Triangolo(double base, double altezza, double cateto) {
+	public Triangolo(double base, double altezza, double cateto) throws IllegalArgumentException {
 		super();
+
+		validaDimensioni(base);
+		validaDimensioni(altezza);
+		validaDimensioni(cateto);
+
 		this.base = base;
 		this.altezza = altezza;
 		this.cateto = cateto;
@@ -16,7 +21,8 @@ public class Triangolo implements Poligono {
 		return base;
 	}
 
-	public void setBase(double base) {
+	public void setBase(double base) throws IllegalArgumentException {
+		validaDimensioni(base);
 		this.base = base;
 	}
 
@@ -24,7 +30,8 @@ public class Triangolo implements Poligono {
 		return altezza;
 	}
 
-	public void setAltezza(double altezza) {
+	public void setAltezza(double altezza) throws IllegalArgumentException {
+		validaDimensioni(altezza);
 		this.altezza = altezza;
 	}
 
@@ -32,7 +39,8 @@ public class Triangolo implements Poligono {
 		return cateto;
 	}
 
-	public void setCateto(double cateto) {
+	public void setCateto(double cateto) throws IllegalArgumentException {
+		validaDimensioni(cateto);
 		this.cateto = cateto;
 	}
 
@@ -47,4 +55,11 @@ public class Triangolo implements Poligono {
 		return (base * altezza) / 2;
 	}
 
+	// controlli
+	private void validaDimensioni(double dimensione) throws IllegalArgumentException {
+		if (dimensione <= 0) {
+			throw new IllegalArgumentException(
+					"Le dimensioni di altezza, base e cateti non possono essere uguali o minori di zero");
+		}
+	}
 }
