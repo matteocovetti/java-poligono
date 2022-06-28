@@ -9,4 +9,8 @@ public interface Poligono {
 	 * dell’interfaccia. Creare una classe Main di test in cui generare delle
 	 * istanze dei poligoni e testare i metodi di calcolo del perimetro e dell’area.
 	 */
+
+	public double calcolaPerimetro();
+
+	public double calcolaArea();
 }
